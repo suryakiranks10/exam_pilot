@@ -60,7 +60,7 @@ def create_trainer_profile(sender,instance,created,**kwargs):
 
         TrainerProfile.objects.create(user=instance)
 
-post_save.connect(TrainerProfile,sender=User)
+post_save.connect(create_trainer_profile,sender=User)
 
 def create_student_profile(sender,instance,created,**kwargs):
 
@@ -68,4 +68,4 @@ def create_student_profile(sender,instance,created,**kwargs):
 
         StudentProfile.objects.create(user=instance)
 
-post_save.connect(StudentProfile,sender=User)
+post_save.connect(create_student_profile,sender=User)

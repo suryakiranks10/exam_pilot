@@ -17,6 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from accounts.views import TrainerSignupView
+
+from rest_framework.authtoken.views import ObtainAuthToken
+
+from accounts.views import TrainerRetrieveUpdateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    #trainer signup
+    path("trainer/signup/",TrainerSignupView.as_view()),
+
+    #token
+    path("token/",ObtainAuthToken.as_view()),
+
+    #trainer profile
+    path("trainer/profile/",TrainerRetrieveUpdateView.as_view()),
 ]

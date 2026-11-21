@@ -31,4 +31,20 @@ class TrainerRetrieveUpdateView(APIView):
 
         return Response(serializer_instance.data)
 
-    
+    def put(self,request):
+
+        form_data = request.data
+
+        instance = TrainerProfile.objects.get(user=request.user)
+
+        serializer_instance = TrainerProfileSerializer(data=form_data,instance=instance)
+
+        if serializer_instance.is_valid():
+
+            serializer_instance.save()
+
+            return Response(serializer_instance.data)
+
+        else:
+
+            return Response(serializer_instance.errors)

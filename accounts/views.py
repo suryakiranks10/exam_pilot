@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework.generics import CreateAPIView
 from accounts.serializers import TrainerSerializer
-
+from accounts.permissions import IsOwner
 from rest_framework.views import APIView
 from rest_framework import authentication,permissions
 from accounts.models import TrainerProfile
@@ -19,7 +19,7 @@ class TrainerRetrieveUpdateView(APIView):
 
     authentication_classes = [authentication.TokenAuthentication]
 
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsOwner]
 
     def get(self,request):
 

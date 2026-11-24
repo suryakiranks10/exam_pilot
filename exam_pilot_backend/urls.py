@@ -23,6 +23,9 @@ from rest_framework.authtoken.views import ObtainAuthToken
 
 from accounts.views import TrainerRetrieveUpdateView
 
+from assessment_management.views import AssessmentListCreateView
+from assessment_management.views import AssessmentRetrieveUpdateDeleteView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -34,4 +37,8 @@ urlpatterns = [
 
     #trainer profile
     path("trainer/profile/",TrainerRetrieveUpdateView.as_view()),
+
+    #assessment
+    path("trainer/assessment/",AssessmentListCreateView.as_view()),
+    path("trainer/assessment/<int:pk>/",AssessmentRetrieveUpdateDeleteView.as_view()),
 ]

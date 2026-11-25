@@ -26,6 +26,9 @@ from accounts.views import TrainerRetrieveUpdateView
 from assessment_management.views import AssessmentListCreateView
 from assessment_management.views import AssessmentRetrieveUpdateDeleteView
 
+from question_management.views import QuestionCreateView
+from question_management.views import QuestionRetrieveUpdateDeleteView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -41,4 +44,8 @@ urlpatterns = [
     #assessment
     path("trainer/assessment/",AssessmentListCreateView.as_view()),
     path("trainer/assessment/<int:pk>/",AssessmentRetrieveUpdateDeleteView.as_view()),
+
+    #question
+    path("assessment/<int:pk>/question/",QuestionCreateView.as_view()),
+    path("question/<int:pk>/",QuestionRetrieveUpdateDeleteView.as_view()),
 ]

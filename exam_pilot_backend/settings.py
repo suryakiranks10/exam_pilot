@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "assessment_management",
+    "question_management",
 ]
 
 MIDDLEWARE = [
